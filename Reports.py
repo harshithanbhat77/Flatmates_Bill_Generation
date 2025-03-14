@@ -1,17 +1,14 @@
+import os
 import webbrowser
-
 from fpdf import FPDF
-
 
 class PdfReport:
     """
     Creates a pdf file that contains data about the flatmates such as
     their names, their due amounts and the period of the bill
     """
-
     def __init__(self,filename):
         self.filename=filename
-
 
     def generate(self, flatmate1, flatmate2, bill):
 
@@ -22,7 +19,7 @@ class PdfReport:
         pdf.add_page()
 
         #Add Icon
-        pdf.image("house.png", w=30, h=30)
+        pdf.image("Files/house.png", w=30, h=30)
 
         # Insert title
         pdf.set_font(family='times', style='B', size=24)
@@ -42,8 +39,9 @@ class PdfReport:
         pdf.cell(w=100, h=40, txt=flatmate2.name, border=0)
         pdf.cell(w=150, h=40, txt=flatmate2_pay, border=0,ln=1)
 
-
+        #Change directory to Files, generate and open the pdf
         pdf.output(self.filename)
+        os.chdir("Files")
 
         #Automatically opens pdf file
         webbrowser.open(self.filename)
