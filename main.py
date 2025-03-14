@@ -12,11 +12,11 @@ Timeline = input(" Enter the period. e.g. March 2025): \n ")
 
 
 the_bill= Bill(amount=Total_amount, period=Timeline)
-Friend_1 = Flatmate(name=Name_1, days_in_house=Days_1)
-Friend_2 = Flatmate(name=Name_2, days_in_house=Days_2)
+flatmate1 = Flatmate(name=Name_1, days_in_house=Days_1)
+flatmate2 = Flatmate(name=Name_2, days_in_house=Days_2)
 
-print(f"{Name_1} has to pay: ",Friend_1.pays(bill=the_bill, flatmate2=Friend_2))
-print(f"{Name_2} has to pay: ",Friend_2.pays(bill=the_bill, flatmate2=Friend_1))
+print(f"{Name_1} has to pay: ",flatmate1.pays(bill=the_bill, flatmate2=flatmate2))
+print(f"{Name_2} has to pay: ",flatmate2.pays(bill=the_bill, flatmate2=flatmate1))
 
 pdf_report = PdfReport(filename="Report1.pdf")
-pdf_report.generate(flatmate1=Friend_1, flatmate2=Friend_2, bill=the_bill)
+pdf_report.generate(flatmate1=flatmate1, flatmate2=flatmate2, bill=the_bill)
