@@ -1,0 +1,2 @@
+fpdf==1.7.2
+space_tracer==4.12.0
